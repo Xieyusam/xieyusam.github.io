@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue.js下使用vue-full-calendar的那些坑（二） | Sam Xie&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="It's wonderful to have a beginner's mind">
+    
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.dff9ea28.js" as="script"><link rel="preload" href="/assets/js/2.1792d1ea.js" as="script"><link rel="preload" href="/assets/js/13.93735402.js" as="script"><link rel="prefetch" href="/assets/js/10.1010f96e.js"><link rel="prefetch" href="/assets/js/11.710b4bac.js"><link rel="prefetch" href="/assets/js/12.25b0d12a.js"><link rel="prefetch" href="/assets/js/14.a795b5d5.js"><link rel="prefetch" href="/assets/js/15.1ced716c.js"><link rel="prefetch" href="/assets/js/3.8b9908c3.js"><link rel="prefetch" href="/assets/js/4.bcaffa59.js"><link rel="prefetch" href="/assets/js/5.846ba11b.js"><link rel="prefetch" href="/assets/js/6.5ff41317.js"><link rel="prefetch" href="/assets/js/7.46f27b21.js"><link rel="prefetch" href="/assets/js/8.ce397dc3.js"><link rel="prefetch" href="/assets/js/9.99dac95f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Sam Xie's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/page1/" class="nav-link router-link-active">
+  VUE
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jsDom/" class="nav-link">
+  Javascript(ES)
+</a></li><li class="dropdown-item"><!----> <a href="/page1/" class="nav-link router-link-active">
+  Html
+</a></li><li class="dropdown-item"><!----> <a href="/page1/" class="nav-link router-link-active">
+  Css
+</a></li><li class="dropdown-item"><!----> <a href="/page1/" class="nav-link router-link-active">
+  微信H5
+</a></li><li class="dropdown-item"><!----> <a href="/page1/" class="nav-link router-link-active">
+  微信小程序
+</a></li></ul></div></div><div class="nav-item"><a href="/page1/" class="nav-link router-link-active">
+  Nodejs
+</a></div><div class="nav-item"><a href="https://github.com/Xieyusam" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/page1/" class="nav-link router-link-active">
+  VUE
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jsDom/" class="nav-link">
+  Javascript(ES)
+</a></li><li class="dropdown-item"><!----> <a href="/page1/" class="nav-link router-link-active">
+  Html
+</a></li><li class="dropdown-item"><!----> <a href="/page1/" class="nav-link router-link-active">
+  Css
+</a></li><li class="dropdown-item"><!----> <a href="/page1/" class="nav-link router-link-active">
+  微信H5
+</a></li><li class="dropdown-item"><!----> <a href="/page1/" class="nav-link router-link-active">
+  微信小程序
+</a></li></ul></div></div><div class="nav-item"><a href="/page1/" class="nav-link router-link-active">
+  Nodejs
+</a></div><div class="nav-item"><a href="https://github.com/Xieyusam" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>VUE</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/page1/" aria-current="page" class="sidebar-link">Vue 的学习之路</a></li><li><a href="/page1/dom1.html" class="sidebar-link">Vue项目中引入jquery和jqueryui</a></li><li><a href="/page1/dom2.html" class="sidebar-link">Vue.js下使用vue-full-calendar的那些坑（一）</a></li><li><a href="/page1/dom3.html" aria-current="page" class="active sidebar-link">Vue.js下使用vue-full-calendar的那些坑（二）</a></li><li><a href="/page1/dom4.html" class="sidebar-link">Vue打包app实现检查更新功能</a></li><li><a href="/page1/dom5.html" class="sidebar-link">Vue路由懒加载</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue-js下使用vue-full-calendar的那些坑-二"><a href="#vue-js下使用vue-full-calendar的那些坑-二" class="header-anchor">#</a> Vue.js下使用vue-full-calendar的那些坑（二）</h1> <p>上次提到在开发日程模块时，用到了vue-full-calendar组件，但是这个组件并没有提供很多原版才有的api，这就需要我们自己去发掘了</p> <p>下面是vue-full-calendar所提供的鼠标点击事件和渲染函数</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">//event点击事件</span>
+@event<span class="token operator">-</span>selected<span class="token operator">=</span><span class="token string">&quot;eventClick&quot;</span>
+<span class="token comment">// day的点击事件</span>
+@day<span class="token operator">-</span>click<span class="token operator">=</span><span class="token string">&quot;dayClick&quot;</span>
+<span class="token comment">//渲染函数</span>
+@event<span class="token operator">-</span>render<span class="token operator">=</span><span class="token string">&quot;eventRender&quot;</span>
+</code></pre></div><p>但是原文档中的event-mouseover和event-mouseout却没有提及和生效
+所以我到了fullcalendar.vue里面去找答案
+果然，让我找到了</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>                    <span class="token function">eventClick</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        self<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'event-selected'</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+                    <span class="token function">eventDrop</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        self<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'event-drop'</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+                    <span class="token function">eventReceive</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        self<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'event-receive'</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+                    <span class="token function">eventResize</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        self<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'event-resize'</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token function">dayClick</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        self<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'day-click'</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>作者在改写vue版本的时候，没有把这两个事件添加进去，所以没办法使用（也可能是作者觉得这两个事件在vue版本下没什么用吧hhhh）
+但是我们也可以依葫芦画瓢，把我们想要的加上去哈哈哈</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>                    <span class="token function">eventMouseover</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        self<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'event-mouseover'</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token function">eventMouseout</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        self<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'event-mouseout'</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>保存后，在组件中尝试使用</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">//添加鼠标滑过事件</span>
+      @event<span class="token operator">-</span>mouseover<span class="token operator">=</span><span class="token string">&quot;hoveritem1&quot;</span>
+      @event<span class="token operator">-</span>mouseout<span class="token operator">=</span><span class="token string">&quot;hoveritem2&quot;</span>
+<span class="token comment">//写函数内容（与dayclick一样，提供了三个参数event, jsEvent, view）</span>
+<span class="token comment">//大家可以输出看看是什么东西</span>
+    <span class="token function">hoveritem1</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> jsEvent<span class="token punctuation">,</span> view</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">hoveritem2</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> jsEvent<span class="token punctuation">,</span> view</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>     
+</code></pre></div><p>初来乍到
+多多指教</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/page1/dom2.html" class="prev">
+        Vue.js下使用vue-full-calendar的那些坑（一）
+      </a></span> <span class="next"><a href="/page1/dom4.html">
+        Vue打包app实现检查更新功能
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.dff9ea28.js" defer></script><script src="/assets/js/2.1792d1ea.js" defer></script><script src="/assets/js/13.93735402.js" defer></script>
+  </body>
+</html>
